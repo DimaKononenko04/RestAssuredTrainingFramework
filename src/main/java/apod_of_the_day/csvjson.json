@@ -1,0 +1,20 @@
+[
+  {
+    "Item": "Laser gun",
+    "Quantity": 25,
+    "Price": 2500,
+    "Description": "looks like ordinary one, shoots with lasers"
+  },
+  {
+    "Item": "bratwurst sausage",
+    "Quantity": 1000,
+    "Price": 200,
+    "Description": "Germany sausage"
+  },
+  {
+    "Item": "onion cracker",
+    "Quantity": 2000,
+    "Price": 10,
+    "Description": "tastes like real onion"
+  }
+]
