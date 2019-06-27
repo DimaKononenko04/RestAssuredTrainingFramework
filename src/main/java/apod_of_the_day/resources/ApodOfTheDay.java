@@ -7,7 +7,8 @@ import apod_of_the_day.model.ApodOfTheDayDTO;
 
 public class ApodOfTheDay {
     private static Gson gson;
-    private static String jsonString = ResponseManager.getNasaApodOfTheDayResponse(PropertiesManager.getAppPropertyValueByName("api_key"));
+    private static String jsonString = ResponseManager.getNasaApodOfTheDayResponse(PropertiesManager.
+            getAppPropertyValueByName("access","api_key"));
 
     public static ApodOfTheDayDTO getNasaApodOfTheDayContent(){
         gson = new Gson();
