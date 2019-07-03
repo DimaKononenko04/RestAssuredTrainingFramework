@@ -4,7 +4,7 @@ import javax.xml.bind.annotation.XmlAttribute;
 
 public class Employee {
 
-    private int id;
+    private Integer id;
     private String firstName;
     private String lastName;
     private String location;
@@ -12,7 +12,7 @@ public class Employee {
     public Employee() {
     }
 
-    public Employee(int id, String firstName, String lastName, String location) {
+    public Employee(Integer id, String firstName, String lastName, String location) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -20,11 +20,11 @@ public class Employee {
     }
 
     @XmlAttribute
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
