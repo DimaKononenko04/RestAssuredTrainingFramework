@@ -24,7 +24,6 @@ public class ParseXml {
         return employees;
     }
 
-
     public static Employees getEmployees(String xmlString){
         Employees employees = null;
         try {
@@ -38,7 +37,7 @@ public class ParseXml {
     }
 
     public static void main(String[] args) {
-        System.out.println(ParseXml.getEmployees().getEmployee().get(0).getId());
+        System.out.println(ParseXml.getEmployees().getEmployee().get(2).getId());
     }
 
 }
