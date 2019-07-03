@@ -35,7 +35,6 @@ public class Connect {
 //        Connection con = DriverManager.getConnection(connectionUrl);
 //        Statement statement = con.createStatement();
 //        ResultSet resultSet = statement.executeQuery("select * from employees");
-
         ResultSet resultSet = Connect.createStatement().executeQuery("select * from employees");
         while ( resultSet.next()){
             System.out.println(resultSet.getString("first_name").trim() +" "
