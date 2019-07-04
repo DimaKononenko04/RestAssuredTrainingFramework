@@ -11,14 +11,14 @@ public class ReadCsv {
     public static <T> List<T> readCsvWithHeader(File csvFile,T type) throws Exception {
         CsvMapper csvMapper = new CsvMapper();
         CsvSchema schema = CsvSchema.emptySchema().withHeader();
-        MappingIterator<T> onlineCourseIter = csvMapper.readerWithTypedSchemaFor(type.getClass()).with(schema).readValues(csvFile);
+        MappingIterator<T> mappingIterator = csvMapper.readerWithTypedSchemaFor(type.getClass()).with(schema).readValues(csvFile);
 
-        return onlineCourseIter.readAll();
+        return mappingIterator.readAll();
     }
 
     public static <T> List<T> readCsvWithoutHeader(File csvFile,T type) throws Exception {
-        MappingIterator<T> personIter = new CsvMapper().readerWithTypedSchemaFor(type.getClass()).readValues(csvFile);
+        MappingIterator<T> mappingIterator = new CsvMapper().readerWithTypedSchemaFor(type.getClass()).readValues(csvFile);
 
-        return personIter.readAll();
+        return mappingIterator.readAll();
     }
 }
