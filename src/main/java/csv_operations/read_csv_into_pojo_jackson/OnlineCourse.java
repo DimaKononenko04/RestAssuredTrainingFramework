@@ -11,6 +11,12 @@ import lombok.Setter;
 @NoArgsConstructor
 
 public class OnlineCourse {
+    private static OnlineCourse onlineCourse;
+
+    public static OnlineCourse getOnlineCourse(){
+        return new OnlineCourse();
+    }
+
     @JsonProperty("Title")
     private String title;
     @JsonProperty("Author")

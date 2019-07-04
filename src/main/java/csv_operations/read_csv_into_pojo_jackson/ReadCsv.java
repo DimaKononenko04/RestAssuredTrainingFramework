@@ -8,16 +8,16 @@ import java.io.File;
 import java.util.List;
 
 public class ReadCsv {
-    public static List<OnlineCourse> readCsvWithHeader(File csvFile) throws Exception {
+    public static <T> List<T> readCsvWithHeader(File csvFile,T type) throws Exception {
         CsvMapper csvMapper = new CsvMapper();
         CsvSchema schema = CsvSchema.emptySchema().withHeader();
-        MappingIterator<OnlineCourse> onlineCourseIter = csvMapper.readerWithTypedSchemaFor(OnlineCourse.class).with(schema).readValues(csvFile);
+        MappingIterator<T> onlineCourseIter = csvMapper.readerWithTypedSchemaFor(type.getClass()).with(schema).readValues(csvFile);
 
         return onlineCourseIter.readAll();
     }
 
-    public static List<Person> readCsvWithoutHeader(File csvFile) throws Exception {
-        MappingIterator<Person> personIter = new CsvMapper().readerWithTypedSchemaFor(Person.class).readValues(csvFile);
+    public static <T> List<T> readCsvWithoutHeader(File csvFile,T type) throws Exception {
+        MappingIterator<T> personIter = new CsvMapper().readerWithTypedSchemaFor(type.getClass()).readValues(csvFile);
 
         return personIter.readAll();
     }

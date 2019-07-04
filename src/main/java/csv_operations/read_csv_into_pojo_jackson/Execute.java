@@ -14,13 +14,13 @@ import java.util.List;
 public class Execute {
     public static void main(String[] args) throws Exception {
         File csvWithHeader = new File(PropertiesManager.getAppPropertyValueByName("csvFilePath","online_course"));
-        List<OnlineCourse> onlineCourses = ReadCsv.readCsvWithHeader(csvWithHeader);
+        List<OnlineCourse> onlineCourses = ReadCsv.readCsvWithHeader(csvWithHeader,OnlineCourse.getOnlineCourse());
         System.out.println(onlineCourses.size());
-        System.out.println(onlineCourses.get(0).getAuthor());
+        System.out.println(onlineCourses.get(1).getAuthor());
 
         File csvWithoutHeader = new File(PropertiesManager.getAppPropertyValueByName("csvFilePath","person"));
-        List<Person> people = ReadCsv.readCsvWithoutHeader(csvWithoutHeader);
-        System.out.println(people.size());
+        List<Person> personList = ReadCsv.readCsvWithoutHeader(csvWithoutHeader,Person.getPerson());
+        System.out.println(personList.size());
     }
 
 }
