@@ -1,7 +1,7 @@
 package xml_parsing;
 
 
-import com.restapi.manager.PropertiesManager;
+import utils.PropertiesManager;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;

@@ -1,6 +1,6 @@
 package database_connection;
 
-import com.restapi.manager.PropertiesManager;
+import utils.PropertiesManager;
 
 import java.sql.*;
 

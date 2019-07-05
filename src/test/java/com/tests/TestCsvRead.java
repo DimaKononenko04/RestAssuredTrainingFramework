@@ -1,7 +1,7 @@
 package com.tests;
 
 
-import com.restapi.manager.PropertiesManager;
+import utils.PropertiesManager;
 import csv_operations.read_csv_into_pojo_jackson.OnlineCourse;
 import csv_operations.read_csv_into_pojo_jackson.ReadCsv;
 import org.junit.Test;
