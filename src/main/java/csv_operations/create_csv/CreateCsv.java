@@ -13,7 +13,7 @@ import java.util.*;
 public class CreateCsv {
 
         public static void writeCsv(String filePath){
-            List<User> users = new ArrayList<User>();
+            List<User> users = new ArrayList<>();
 
             User user = new User();
             user.setId(1);
@@ -54,11 +54,11 @@ public class CreateCsv {
 
     public static List<String> createCsvFileWithEmployees(){
             ArrayList<Employee> employeeList = ParseXml.getEmployees().getEmployee();
-            List<String> dataToPutIntoCsv = new LinkedList<String>();
+            List<String> dataToPutIntoCsv = new LinkedList<>();
             for (Employee employee : employeeList) {
                 GsonBuilder gsonMapBuilder = new GsonBuilder();
                 Gson gsonObject = gsonMapBuilder.create();
-                Map<String, String> csvFile = new LinkedHashMap<String, String>();
+                Map<String, String> csvFile = new LinkedHashMap<>();
                 csvFile.put("id", employee.getId().toString());
                 csvFile.put("first_name", employee.getFirstName());
                 csvFile.put("last_name", employee.getLastName());

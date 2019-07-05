@@ -1,6 +1,6 @@
 package csv_operations.read_csv_into_pojo_jackson;
 
-import com.restapi.manager.PropertiesManager;
+import utils.PropertiesManager;
 
 import java.io.File;
 import java.util.List;

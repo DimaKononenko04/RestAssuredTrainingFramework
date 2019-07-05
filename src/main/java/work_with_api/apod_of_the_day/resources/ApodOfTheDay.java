@@ -1,9 +1,9 @@
-package apod_of_the_day.resources;
+package work_with_api.apod_of_the_day.resources;
 
 import com.google.gson.Gson;
-import com.restapi.manager.PropertiesManager;
+import utils.PropertiesManager;
 import com.restapi.manager.ResponseManager;
-import apod_of_the_day.model.ApodOfTheDayDTO;
+import work_with_api.apod_of_the_day.model.ApodOfTheDayDTO;
 
 public class ApodOfTheDay {
     private static Gson gson;

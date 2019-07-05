@@ -1,6 +1,6 @@
 package csv_operations.read_csv_appache_commons_csv;
 
-import com.restapi.manager.PropertiesManager;
+import utils.PropertiesManager;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;

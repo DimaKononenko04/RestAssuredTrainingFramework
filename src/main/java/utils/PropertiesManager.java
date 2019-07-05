@@ -1,4 +1,4 @@
-package com.restapi.manager;
+package utils;
 
 import java.util.ResourceBundle;
 

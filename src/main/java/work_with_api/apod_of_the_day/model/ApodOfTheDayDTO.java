@@ -1,4 +1,4 @@
-package apod_of_the_day.model;
+package work_with_api.apod_of_the_day.model;
 
 import com.google.gson.annotations.SerializedName;
 import lombok.AllArgsConstructor;

@@ -1,6 +1,6 @@
 package execution;
 
-import static apod_of_the_day.resources.ApodOfTheDay.getNasaApodOfTheDayContent;
+import static work_with_api.apod_of_the_day.resources.ApodOfTheDay.getNasaApodOfTheDayContent;
 
 
 public class ExecutionClass extends BaseClass {
