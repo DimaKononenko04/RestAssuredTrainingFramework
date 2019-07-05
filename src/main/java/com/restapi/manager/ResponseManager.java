@@ -11,7 +11,6 @@ public class ResponseManager {
 
     public static String getNasaApodOfTheDayResponse(String api_key){
         Response response = RequestManager.getNasaPictureOfTheDay(api_key);
-//        return response.getBody().prettyPrint();
         return response.getBody().asString();
     }
 
