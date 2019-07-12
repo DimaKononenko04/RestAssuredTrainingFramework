@@ -9,8 +9,8 @@ import java.io.*;
 
 public class ReadFromCsv {
     public static void main(String[] args) throws IOException {
-        File csvFile = new File(PropertiesManager.getAppPropertyValueByName("csvFilePath","csv_file_path"));
-        InputStreamReader input = new InputStreamReader(new FileInputStream(csvFile));
+        FileInputStream csvFile = new FileInputStream(PropertiesManager.getAppPropertyValueByName("csvFilePath","csv_file_path"));
+        InputStreamReader input = new InputStreamReader(csvFile);
         CSVParser csvParser = CSVFormat.EXCEL.withFirstRecordAsHeader().parse(input);
         for (CSVRecord record : csvParser) {
             System.out.println(record.get("Item"));
