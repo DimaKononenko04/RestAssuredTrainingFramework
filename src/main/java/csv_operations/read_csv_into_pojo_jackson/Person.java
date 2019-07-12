@@ -2,10 +2,12 @@ package csv_operations.read_csv_into_pojo_jackson;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
+@NoArgsConstructor
 @JsonPropertyOrder({"name", "surname", "shoesize", "gender"})
 public class Person {
     private static Person person;
@@ -21,40 +23,5 @@ public class Person {
     private String surname;
     private int shoesize;
     private String gender;
-
-    private Person() {
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getSurname() {
-        return surname;
-    }
-
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
-
-    public int getShoesize() {
-        return shoesize;
-    }
-
-    public void setShoesize(int shoesize) {
-        this.shoesize = shoesize;
-    }
-
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
 
 }
