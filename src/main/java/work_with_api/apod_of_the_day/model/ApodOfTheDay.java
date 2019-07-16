@@ -14,7 +14,16 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode
 @NoArgsConstructor(force = true)
 
-public class ApodOfTheDayDTO {
+public class ApodOfTheDay{
+
+    private static ApodOfTheDay apodOfTheDay;
+
+    public static ApodOfTheDay getApodOfTheDay(){
+        if(apodOfTheDay == null){
+            apodOfTheDay = new ApodOfTheDay();
+        }
+        return apodOfTheDay;
+    }
 
     @SerializedName("hdurl")
     private String hdUrl;

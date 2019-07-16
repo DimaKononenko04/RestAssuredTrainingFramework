@@ -33,5 +33,6 @@ public class Person {
                 .buid();
 
         System.out.println(person.surname);
+        System.out.println(person.name);
     }
 }

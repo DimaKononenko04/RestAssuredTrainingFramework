@@ -9,7 +9,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 public class OnlineCourse {
-    private static OnlineCourse onlineCourse;
+    transient private static OnlineCourse onlineCourse;
 
     public static OnlineCourse getOnlineCourse(){
         if(onlineCourse == null){

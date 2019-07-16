@@ -1,13 +1,14 @@
 package execution;
 
-import static work_with_api.apod_of_the_day.resources.ApodOfTheDay.getNasaApodOfTheDayContent;
-
+import work_with_api.apod_of_the_day.model.ApodOfTheDay;
+import work_with_api.apod_of_the_day.resources.Entity;
 
 public class ExecutionClass extends BaseClass {
     public static void main(String[] args) {
         preparation();
-        System.out.println(getNasaApodOfTheDayContent().getTitle());
-        System.out.println(getNasaApodOfTheDayContent().getExplanation());
+        ApodOfTheDay apodOfTheDayContent = Entity.getContent(ApodOfTheDay.getApodOfTheDay());
+        System.out.println(apodOfTheDayContent.getTitle());
+        System.out.println(apodOfTheDayContent.getExplanation());
     }
 
 }
