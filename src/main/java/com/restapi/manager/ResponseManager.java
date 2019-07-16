@@ -8,8 +8,8 @@ public class ResponseManager {
     private ResponseManager(){
     }
 
-    public static String getResponse(String api_key){
-        Response response = RequestManager.performRequest(api_key);
+    public static String getResponse(String endpoint,String api_key){
+        Response response = RequestManager.performRequest(endpoint,api_key);
         return response.getBody().asString();
     }
 

@@ -1,11 +1,7 @@
 package work_with_api.apod_of_the_day.model;
 
 import com.google.gson.annotations.SerializedName;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.Getter;
-import lombok.EqualsAndHashCode;
+import lombok.*;
 
 
 @Getter
@@ -16,7 +12,7 @@ import lombok.EqualsAndHashCode;
 
 public class ApodOfTheDay{
 
-    private static ApodOfTheDay apodOfTheDay;
+    transient private static ApodOfTheDay apodOfTheDay;
 
     public static ApodOfTheDay getApodOfTheDay(){
         if(apodOfTheDay == null){

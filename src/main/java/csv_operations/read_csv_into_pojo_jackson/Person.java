@@ -10,7 +10,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @JsonPropertyOrder({"name", "surname", "shoesize", "gender"})
 public class Person {
-    private static Person person;
+    transient private static Person person;
 
     public static Person getPerson(){
         if (person == null) {
