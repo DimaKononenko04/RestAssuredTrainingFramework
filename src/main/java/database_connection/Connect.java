@@ -3,6 +3,8 @@ package database_connection;
 import utils.PropertiesManager;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Connect {
 
@@ -35,12 +37,18 @@ public class Connect {
 //        Connection con = DriverManager.getConnection(connectionUrl);
 //        Statement statement = con.createStatement();
 //        ResultSet resultSet = statement.executeQuery("select * from employees");
+        List<Employee> employees = new ArrayList<>();
         ResultSet resultSet = Connect.createStatement().executeQuery("select * from employees");
         while ( resultSet.next()){
-            System.out.println(resultSet.getString("first_name").trim() +" "
-                    + resultSet.getString("last_name").trim()
-                    +" " + resultSet.getString("position"));
+            Employee employee = new Employee();
+            employee.setEmployeeId(Integer.parseInt(resultSet.getString("employee_id").trim()));
+            employee.setFirstName(resultSet.getString("first_name").trim());
+            employee.setLastName(resultSet.getString("last_name").trim());
+            employee.setPosition(resultSet.getString("position").trim());
+            employees.add(employee);
         }
+        System.out.println(employees.get(1).getFirstName());
+        System.out.println(employees.get(1).getEmployeeId());
 //        String sqlInsert = "insert into pages"
 //                + "(p_parent,p_name)"
 //                + "values ('1','new line text')";
