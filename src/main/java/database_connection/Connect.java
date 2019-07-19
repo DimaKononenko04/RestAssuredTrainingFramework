@@ -6,7 +6,7 @@ import java.sql.*;
 
 public class Connect {
 
-    public static Connection createDbConnection(){
+    private static Connection createDbConnection(){
         String connectionUrl = PropertiesManager.getAppPropertyValueByName("dbconnection","url");
         Connection connnection = null;
         try {
@@ -29,8 +29,8 @@ public class Connect {
 
 
 
-    public static void main(String[] args) throws SQLException {
-        //Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+    public static void main(String[] args) throws SQLException, ClassNotFoundException {
+        Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 //        String connectionUrl = PropertiesManager.getAppPropertyValueByName("dbconnection","url");
 //        Connection con = DriverManager.getConnection(connectionUrl);
 //        Statement statement = con.createStatement();
