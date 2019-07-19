@@ -29,6 +29,7 @@
         <jackson.dataformat.version>2.8.8</jackson.dataformat.version>
         <appache.commons-csv.version>1.7</appache.commons-csv.version>
         <junit.version>4.12</junit.version>
+        <mssql-jdbc.version>6.2.2.jre8</mssql-jdbc.version>
 
     </properties>
 
@@ -88,7 +89,7 @@
         <dependency>
             <groupId>com.microsoft.sqlserver</groupId>
             <artifactId>mssql-jdbc</artifactId>
-            <version>6.2.2.jre8</version>
+            <version>${mssql-jdbc.version}</version>
         </dependency>
 
     </dependencies>
