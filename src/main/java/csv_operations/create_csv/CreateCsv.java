@@ -70,7 +70,7 @@ public class CreateCsv {
 
     public static void main(String[] args) throws IOException {
 //        System.out.println(CreateCsv.createCsvFileWithEmployees());
-        String filePath = "C:\\RestAssuredTrainingFramework\\src\\main\\java\\csv_operations\\create_csv\\Input.csv";
+        String filePath = "C:\\Users\\Dmytro_Kononenko1\\Desktop\\BulkOpt_Create_Orders\\input.csv";
         writeCsv(filePath,ReadFromCsv.getExportFromSplitJoin().replaceAll("\"","\"\""));
 
     }
