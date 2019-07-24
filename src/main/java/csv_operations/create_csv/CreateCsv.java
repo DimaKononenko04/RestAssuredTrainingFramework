@@ -18,7 +18,7 @@ public class CreateCsv {
             List<Input> inputFile = new ArrayList<>();
 
             Input input = new Input();
-            input.setConfigDataStoreName("ds_otc_om_la_app_settings_copy_olya");
+            input.setConfigDataStoreName("ds_otc_om_la_app_settings");
             input.setErrorCode("");
             input.setErrorMessage("");
             input.setAllocatedJsonSet(json);
