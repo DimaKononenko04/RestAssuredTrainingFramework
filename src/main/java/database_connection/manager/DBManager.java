@@ -1,4 +1,4 @@
-package database_connection;
+package database_connection.manager;
 
 import utils.PropertiesManager;
 
@@ -7,7 +7,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class Connect {
+public class DBManager {
 
     public static Connection createDbConnection(){
         String connectionUrl = PropertiesManager.getAppPropertyValueByName("dbconnection","url");
@@ -28,6 +28,16 @@ public class Connect {
             e.printStackTrace();
         }
         return statement;
+    }
+
+    public static void updateDB(String sql){
+        int rowsAffected = 0;
+        try {
+            rowsAffected = createStatement().executeUpdate(sql);
+            System.out.println("DB updated successfully,\n" + rowsAffected + " rows affected" );
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
 }

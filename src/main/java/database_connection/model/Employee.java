@@ -1,4 +1,4 @@
-package database_connection;
+package database_connection.model;
 
 import lombok.Data;
 
@@ -8,5 +8,4 @@ public class Employee {
     private String firstName;
     private String lastName;
     private String position;
-
 }
