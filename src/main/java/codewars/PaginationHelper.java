@@ -106,6 +106,7 @@ public class PaginationHelper<I> {
         return itemsOnPage;
     }
 
+    // using object Page
     public List<Page> getPages(){
         List<Page> pages = new ArrayList<>();
         int remainingItems = itemCount();
@@ -126,6 +127,30 @@ public class PaginationHelper<I> {
         return pages;
     }
 
+    // using Builder
+    public List<Page> getPagesTest(){
+        List<Page> pages = new ArrayList<>();
+        int remainingItems = itemCount();
+        for (int i = 0; i < pageCount(); i++){
+            if (remainingItems-itemsPerPage >= 0){
+                Page page = new Page.Builder()
+                        .withPageIndex(i)
+                        .withNumberOfItems(itemsPerPage)
+                        .build();
+                pages.add(page);
+                remainingItems-=itemsPerPage;
+            }else {
+                Page page = new Page.Builder()
+                        .withPageIndex(i)
+                        .withNumberOfItems(itemCount() % itemsPerPage)
+                        .build();
+                pages.add(page);
+            }
+        }
+        return pages;
+    }
+
+    // using object Page
     public int pageItemCountTest(int pageIndex) {
         if (pageIndex < 0 || pageIndex > getPages().size()){
             return -1;
