@@ -1,9 +1,64 @@
 package codewars;
 
-import java.util.Arrays;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+
+
+class Page {
+    private int pageIndex;
+    private int numberOfItems;
+    private List<Integer> items;
+
+    public int getPageIndex() {
+        return pageIndex;
+    }
+
+    public void setPageIndex(int pageIndex) {
+        this.pageIndex = pageIndex;
+    }
+
+    public int getNumberOfItems() {
+        return numberOfItems;
+    }
+
+    public void setNumberOfItems(int numberOfItems) {
+        this.numberOfItems = numberOfItems;
+    }
+
+    public List<Integer> getItems() {
+        return items;
+    }
+
+    public void setItems(List<Integer> items) {
+        this.items = items;
+    }
+
+    static class Builder{
+        private Page page;
+
+        public Builder(){
+            page = new Page();
+        }
+
+        public Builder withPageIndex(int pageIndex){
+            page.pageIndex = pageIndex;
+            return this;
+        }
+
+        public Builder withNumberOfItems(int numberOfItems){
+            page.numberOfItems = numberOfItems;
+            return this;
+        }
+
+        public Builder withItems(List<Integer> items){
+            page.items = items;
+            return this;
+        }
+
+        public Page build(){
+            return page;
+        }
+    }
+}
 
 public class PaginationHelper<I> {
     /**
@@ -37,7 +92,7 @@ public class PaginationHelper<I> {
      * this method should return -1 for pageIndex values that are out of range
      */
 
-    public Map<Integer,Integer> getItemsOnPages(){
+    public Map<Integer,Integer> getNumberOfItemsOnPage(){
         Map<Integer,Integer> itemsOnPage = new LinkedHashMap<>();
         int remainingItems = itemCount();
         for (int i = 0; i <pageCount() ; i++) {
@@ -51,11 +106,38 @@ public class PaginationHelper<I> {
         return itemsOnPage;
     }
 
-    public int pageItemCount(int pageIndex) {
-        if (pageIndex < 0 || !getItemsOnPages().containsKey(pageIndex)){
+    public List<Page> getPages(){
+        List<Page> pages = new ArrayList<>();
+        int remainingItems = itemCount();
+        for (int i = 0; i < pageCount(); i++){
+            if (remainingItems-itemsPerPage >= 0){
+                Page page = new Page();
+                page.setPageIndex(i);
+                page.setNumberOfItems(itemsPerPage);
+                pages.add(page);
+                remainingItems-=itemsPerPage;
+            }else {
+                Page page = new Page();
+                page.setPageIndex(i);
+                page.setNumberOfItems(itemCount() % itemsPerPage);
+                pages.add(page);
+            }
+        }
+        return pages;
+    }
+
+    public int pageItemCountTest(int pageIndex) {
+        if (pageIndex < 0 || pageIndex > getPages().size()){
             return -1;
         }
-        return getItemsOnPages().get(pageIndex);
+        return getPages().get(pageIndex).getNumberOfItems();
+    }
+
+    public int pageItemCount(int pageIndex) {
+        if (pageIndex < 0 || !getNumberOfItemsOnPage().containsKey(pageIndex)){
+            return -1;
+        }
+        return getNumberOfItemsOnPage().get(pageIndex);
     }
 
     /**
@@ -73,6 +155,10 @@ public class PaginationHelper<I> {
         System.out.println(helper.pageCount());
         System.out.println(helper.pageItemCount(4));
 
+        // test with object Page
+        System.out.println(helper.pageItemCountTest(0));
+
         System.out.println(helper.pageIndex(4));
     }
+
 }
