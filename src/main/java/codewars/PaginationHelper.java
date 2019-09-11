@@ -57,8 +57,8 @@ public class PaginationHelper<I> {
         int remainingItems = itemCount();
         int itemCurrentIndex = 1;
         for (int i = 0; i < pageCount(); i++){
+            Page page = new Page();
             if (remainingItems-itemsPerPage >= 0){
-                Page page = new Page();
                 page.setPageIndex(i);
                 page.setNumberOfItems(itemsPerPage);
                 List<Integer> indexes = new ArrayList<>();
@@ -70,7 +70,6 @@ public class PaginationHelper<I> {
                 pages.add(page);
                 remainingItems-=itemsPerPage;
             }else {
-                Page page = new Page();
                 page.setPageIndex(i);
                 page.setNumberOfItems(itemCount() % itemsPerPage);
                 List<Integer> indexes = new ArrayList<>();
