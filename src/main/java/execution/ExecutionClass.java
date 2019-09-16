@@ -17,6 +17,8 @@ public class ExecutionClass extends BaseClass {
         ApodOfTheDay apodOfTheDayContent = Entity.getContent(apodOfTheDayJsonString,ApodOfTheDay.getApodOfTheDay());
         System.out.println(apodOfTheDayContent.getTitle());
         System.out.println(apodOfTheDayContent.getExplanation());
+        System.out.println(apodOfTheDayContent.getUrl());
+        System.out.println(apodOfTheDayContent.getHdUrl());
     }
 
 }
