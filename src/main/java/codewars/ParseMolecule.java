@@ -1,6 +1,8 @@
 package codewars;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -14,12 +16,15 @@ private static final String ELEMENTS_BEFORE_BRACES_REGEX = "^([A-Z][a-z]?)\\d?(?
 
 
     public static String getAtoms(String formula,String regex){
-        Map<String,Integer> map = new HashMap<>();
         StringBuilder stringBuilder = new StringBuilder();
+        List<Map<String,Integer>> separatedAtoms = new ArrayList<>();
         Pattern pattern = Pattern.compile(regex);
         Matcher match = pattern.matcher(formula);
         while (match.find()){
-//            map.put(match.group().replaceAll("\\d",""),Integer.parseInt(match.group().replaceAll("\\D","").equals("") ? "1" :match.group().replaceAll("\\D","")));
+            Map<String,Integer> map = new HashMap<>();
+            map.put(match.group().replaceAll("\\d",""),
+                    Integer.parseInt(match.group().replaceAll("\\D","").equals("") ? "1" :match.group().replaceAll("\\D","")));
+            separatedAtoms.add(map);
             stringBuilder.append(match.group()).append("---");
         }
 
@@ -29,6 +34,10 @@ private static final String ELEMENTS_BEFORE_BRACES_REGEX = "^([A-Z][a-z]?)\\d?(?
 
     public static void main(String[] args) {
         String formula = "Mg4{ON(SO3)2}2";
+//        String formula = "H2O";
+//        String formula = "Mg(OH)2";
+//        String formula = "K4[ON(SO3)2]2";
+//        String formula = "pie";
         System.out.println(ParseMolecule.getAtoms(formula, REGEX));
         System.out.println(ParseMolecule.getAtoms(formula, INSIDE_BRACES_REGEX));
         System.out.println(ParseMolecule.getAtoms(formula, NUMBERS_AFTER_BRACES_REGEX));
