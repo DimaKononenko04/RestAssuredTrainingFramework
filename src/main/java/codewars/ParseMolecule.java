@@ -14,21 +14,24 @@ private static final String ELEMENTS_BEFORE_BRACES_REGEX = "^([A-Z][a-z]?)\\d?(?
 private static final String REMOVE_CHARS_AND_BRACKETS_REGEX = "^\\w+\\d?[\\[({]|[\\])}]\\d$";
 private static final String BRACKETS_PRESENT_IN_STRING_REGEX = ".*?[\\[({].*";
 
+    public static void getSeparatedAtoms(String formula, Map<String,Integer> atoms,String regex){
+        Pattern pattern = Pattern.compile(regex);
+        Matcher match = pattern.matcher(formula);
+        while (match.find()){
+            atoms.put(match.group().replaceAll("\\d",""),
+                    Integer.parseInt(match.group().replaceAll("\\D","").equals("") ? "1" :match.group().replaceAll("\\D","")));
+        }
+    }
 
     public static Map<String,Integer> getAtoms(String formula){
         // if there is no brackets in formula
         Map<String,Integer> atoms = new LinkedHashMap<>();
         if (!formula.matches(BRACKETS_PRESENT_IN_STRING_REGEX)) {
-            Pattern pattern = Pattern.compile(SEPARATE_ATOMS_REGEX);
-            Matcher match = pattern.matcher(formula);
-            while (match.find()){
-                atoms.put(match.group().replaceAll("\\d",""),
-                        Integer.parseInt(match.group().replaceAll("\\D","").equals("") ? "1" :match.group().replaceAll("\\D","")));
-            }
+            getSeparatedAtoms(formula,atoms,SEPARATE_ATOMS_REGEX);
             return atoms;
         }
         else {
-
+            getSeparatedAtoms(formula,atoms,ELEMENTS_BEFORE_BRACES_REGEX);
         }
 
 //        List<Map<String,Integer>> separatedAtoms = new ArrayList<>();
@@ -48,6 +51,7 @@ private static final String BRACKETS_PRESENT_IN_STRING_REGEX = ".*?[\\[({].*";
 
     public static void main(String[] args) {
         String formula = "Mg4{ON(SO3)2}2";
+//        String formula = "H2SO4";
 //        String formula = "H2O";
 //        String formula = "Mg(OH)2";
 //        String formula = "K4[ON(SO3)2]2";
