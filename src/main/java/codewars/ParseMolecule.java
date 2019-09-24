@@ -76,6 +76,7 @@ private static int atomMultiplier = 1;
             return atoms;
         }
         // if brackets are present in formula
+        // bug is here
         else {
             separateAtomsInsideBrackets(formula,list);
             for (int i = 0; i < list.size(); i++) {
