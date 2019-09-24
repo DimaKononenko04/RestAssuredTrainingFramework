@@ -91,16 +91,19 @@ private static int atomMultiplier = 1;
             }
 
         }
+        atomMultiplier = 1;
         return atoms;
     }
 
     public static void main(String[] args) {
 //        String formula = "Mg4{ON(SO3)3}2";
 //        String formula = "H2SO4";
-//        String formula = "H2O";
-//        String formula = "Mg(OH)2";
-        String formula = "K4[ON(SO3)2]2";
+        String formula1 = "H2O";
+        String formula2 = "Mg(OH)2";
+        String formula3 = "K4[ON(SO3)2]2";
 //        String formula = "pie";
-        System.out.println(ParseMolecule.getAtoms(formula));
+        System.out.println(ParseMolecule.getAtoms(formula1));
+        System.out.println(ParseMolecule.getAtoms(formula2));
+        System.out.println(ParseMolecule.getAtoms(formula3));
     }
 }
