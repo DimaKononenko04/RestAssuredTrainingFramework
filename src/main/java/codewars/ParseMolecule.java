@@ -29,12 +29,16 @@ private static int atomMultiplier = 1;
 
     public static void putSplittedElementsIntoList(Matcher matcher, List<Map<String,Integer>> list){
         while (matcher.find()){
-            Map<String,Integer> mapWithValues = new HashMap<>();
-            mapWithValues.put(matcher.group().replaceAll("\\d",""),
-                    Integer.parseInt(matcher.group().replaceAll("\\D","").equals("") ? "1" : matcher.group().replaceAll("\\D",""))*atomMultiplier);
-            list.add(mapWithValues);
+            Matcher separatedAtoms = getMatching(matcher.group(),SEPARATE_ATOMS_REGEX);
+            while (separatedAtoms.find()){
+                Map<String,Integer> mapWithValues = new HashMap<>();
+                mapWithValues.put(separatedAtoms.group().replaceAll("\\d",""),
+                        Integer.parseInt(separatedAtoms.group().replaceAll("\\D","").equals("") ? "1" : separatedAtoms.group().replaceAll("\\D",""))*atomMultiplier);
+                list.add(mapWithValues);
+            }
         }
     }
+
 
     public static void separateAtomsInsideBrackets(String formula, List<Map<String,Integer>> list){
         if (formula.equals("") | formula.matches("\\w+\\d?")){
@@ -42,6 +46,7 @@ private static int atomMultiplier = 1;
         }
 
         // get elements before and after brackets
+        // problem is here
         Matcher elementsBeforeBrackets = getMatching(formula, ELEMENTS_BEFORE_AND_AFTER_BRACES_REGEX);
         putSplittedElementsIntoList(elementsBeforeBrackets,list);
 
@@ -99,7 +104,6 @@ private static int atomMultiplier = 1;
             return atoms;
         }
         // if brackets are present in formula
-        // bug is here
         else {
             separateAtomsInsideBrackets(formula,list);
             countAtomsAndPutThemIntoMap(list,atoms);
@@ -119,6 +123,11 @@ private static int atomMultiplier = 1;
         String formula6 = "C2H2(COOH)2";
         String formula7 = "As2{Be4C5[BCo3(CO2)3]2}4Cu5";
 //        String formula = "pie";
-        System.out.println(ParseMolecule.getAtoms(formula7));
+        System.out.println(ParseMolecule.getAtoms(formula1));
+        System.out.println(ParseMolecule.getAtoms(formula2));
+        System.out.println(ParseMolecule.getAtoms(formula3));
+        System.out.println(ParseMolecule.getAtoms(formula4));
+        System.out.println(ParseMolecule.getAtoms(formula5));
+        System.out.println(ParseMolecule.getAtoms(formula6));
     }
 }

@@ -30,6 +30,11 @@ public class SolutionTest {
                         Arrays.asList( 4,   14,  2,   4 ),
                         "K4[ON(SO3)2]2",
                         "Fremy's salt"},
+
+                {Arrays.asList("C", "H", "O"),
+                        Arrays.asList( 4,4,4),
+                        "C2H2(COOH)2",
+                        "cyclopentadienyliron dicarbonyl dimer"},
         });
     }
 
