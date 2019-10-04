@@ -129,5 +129,6 @@ private static int atomMultiplier = 1;
         System.out.println(ParseMolecule.getAtoms(formula4));
         System.out.println(ParseMolecule.getAtoms(formula5));
         System.out.println(ParseMolecule.getAtoms(formula6));
+        System.out.println(ParseMolecule.getAtoms(formula7));
     }
 }
