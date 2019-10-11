@@ -12,7 +12,7 @@ public class ExecutionClass extends BaseClass {
         accessBaseUri(AccessEndpoints.BASE_URI);
 
         String apodOfTheDayJsonString = ResponseManager.getResponse(ServicesEndpoints.APOD_API_ENDPOINT,PropertiesManager.
-                getAppPropertyValueByName("nasa_api_access","api_key"));
+                getPropertyValueByName("nasa_api_access","api_key"));
 
         ApodOfTheDay apodOfTheDayContent = Entity.getContent(apodOfTheDayJsonString,ApodOfTheDay.getApodOfTheDay());
         System.out.println(apodOfTheDayContent.getTitle());
