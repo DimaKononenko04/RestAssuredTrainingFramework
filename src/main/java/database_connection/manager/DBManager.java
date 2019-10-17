@@ -10,7 +10,7 @@ import java.sql.Statement;
 public class DBManager {
 
     public static Connection createDbConnection(){
-        String connectionUrl = PropertiesManager.getAppPropertyValueByName("dbconnection","url");
+        String connectionUrl = PropertiesManager.getPropertyValueByName("dbconnection","url");
         Connection connnection = null;
         try {
             connnection = DriverManager.getConnection(connectionUrl);
