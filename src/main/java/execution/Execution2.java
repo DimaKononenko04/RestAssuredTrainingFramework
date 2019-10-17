@@ -21,7 +21,7 @@ public class Execution2 {
                     .field("upload", new File(file))
                     .asString();
             System.out.println("Recognize:");
-            System.out.println(response.getBody().toString());
+            System.out.println(response.getBody());
         }
         catch(Exception e){
             System.out.println(e);
@@ -32,7 +32,7 @@ public class Execution2 {
                     .header("Authorization", "Token "+token)
                     .asString();
             System.out.println("Usage:");
-            System.out.println(response.getBody().toString());
+            System.out.println(response.getBody());
         }
         catch(Exception e){
             System.out.println(e);
