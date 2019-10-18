@@ -10,15 +10,15 @@ import java.util.List;
 @AllArgsConstructor
 @EqualsAndHashCode
 @NoArgsConstructor(force = true)
-public class LicensePlate {
+public class LprInfo {
 
-    transient private static LicensePlate licensePlate;
+    transient private static LprInfo LPRInfo;
 
-    public static LicensePlate getLicensePlate(){
-        if (licensePlate == null){
-            licensePlate = new LicensePlate();
+    public static LprInfo getLPRInfo(){
+        if (LPRInfo == null){
+            LPRInfo = new LprInfo();
         }
-        return licensePlate;
+        return LPRInfo;
     }
 
     @SerializedName("processing_time")
