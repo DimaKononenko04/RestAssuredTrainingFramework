@@ -1,7 +1,15 @@
 package plate_recognition.model;
 
 import com.google.gson.annotations.SerializedName;
+import lombok.*;
 
+import java.util.List;
+
+@Getter
+@Setter
+@AllArgsConstructor
+@EqualsAndHashCode
+@NoArgsConstructor(force = true)
 public class LicensePlate {
 
     transient private static LicensePlate licensePlate;
@@ -18,7 +26,7 @@ public class LicensePlate {
     @SerializedName("timestamp")
     private String timestamp;
     @SerializedName("results")
-    private Result result;
+    private List<Result> results;
     @SerializedName("filename")
     private String fileName;
     @SerializedName("version")

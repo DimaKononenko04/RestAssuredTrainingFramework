@@ -20,10 +20,18 @@ public class RequestManager {
 
     public static Response postLicensePlate(String endpoint, String apiKey, File file){
         return given()
+                .header("Authorization","Token " + apiKey)
                 .multiPart("upload",file)
-                .header("Authorization","Token" + apiKey)
                 .when()
-                .post("posturi")
+                .post(endpoint)
+                .thenReturn();
+    }
+
+    public static Response getLprApiUserStatistics(String endpoint, String apiKey){
+        return given()
+                .header("Authorization","Token " + apiKey)
+                .when()
+                .get(endpoint)
                 .thenReturn();
     }
 
